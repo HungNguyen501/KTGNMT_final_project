@@ -1,0 +1,477 @@
+
+Firmware.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000029e  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000312  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000006  00800060  00800060  00000312  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000312  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000344  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000058  00000000  00000000  00000380  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000008dc  00000000  00000000  000003d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000006e3  00000000  00000000  00000cb4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000003e0  00000000  00000000  00001397  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000000dc  00000000  00000000  00001778  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000003cf  00000000  00000000  00001854  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000001bb  00000000  00000000  00001c23  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000048  00000000  00000000  00001dde  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   8:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+   c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  10:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  14:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  18:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  1c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  20:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  24:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  28:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  2c:	0c 94 b0 00 	jmp	0x160	; 0x160 <__vector_11>
+  30:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  34:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  38:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  3c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  40:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  44:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  48:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  4c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  50:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_clear_bss>:
+  60:	20 e0       	ldi	r18, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	01 c0       	rjmp	.+2      	; 0x6a <.do_clear_bss_start>
+
+00000068 <.do_clear_bss_loop>:
+  68:	1d 92       	st	X+, r1
+
+0000006a <.do_clear_bss_start>:
+  6a:	a6 36       	cpi	r26, 0x66	; 102
+  6c:	b2 07       	cpc	r27, r18
+  6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
+  70:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <main>
+  74:	0c 94 4d 01 	jmp	0x29a	; 0x29a <_exit>
+
+00000078 <__bad_interrupt>:
+  78:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000007c <Request>:
+uint8_t D_Temp;
+uint8_t CheckSum;
+
+void Request()				/* Microcontroller send start pulse/request */
+{
+	DDRD |= (1<<DHT11_PIN);
+  7c:	81 b3       	in	r24, 0x11	; 17
+  7e:	80 64       	ori	r24, 0x40	; 64
+  80:	81 bb       	out	0x11, r24	; 17
+	PORTD &= ~(1<<DHT11_PIN);	/* set to low pin */
+  82:	82 b3       	in	r24, 0x12	; 18
+  84:	8f 7b       	andi	r24, 0xBF	; 191
+  86:	82 bb       	out	0x12, r24	; 18
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  88:	8f e3       	ldi	r24, 0x3F	; 63
+  8a:	9c e9       	ldi	r25, 0x9C	; 156
+  8c:	01 97       	sbiw	r24, 0x01	; 1
+  8e:	f1 f7       	brne	.-4      	; 0x8c <Request+0x10>
+  90:	00 c0       	rjmp	.+0      	; 0x92 <Request+0x16>
+  92:	00 00       	nop
+	_delay_ms(20);			/* wait for 20ms */
+	PORTD |= (1<<DHT11_PIN);	/* set to high pin */
+  94:	82 b3       	in	r24, 0x12	; 18
+  96:	80 64       	ori	r24, 0x40	; 64
+  98:	82 bb       	out	0x12, r24	; 18
+  9a:	08 95       	ret
+
+0000009c <Response>:
+}
+
+void Response()				/* receive response from DHT11 */
+{
+	DDRD &= ~(1<<DHT11_PIN);
+  9c:	81 b3       	in	r24, 0x11	; 17
+  9e:	8f 7b       	andi	r24, 0xBF	; 191
+  a0:	81 bb       	out	0x11, r24	; 17
+	while(PIND & (1<<DHT11_PIN));
+  a2:	86 99       	sbic	0x10, 6	; 16
+  a4:	fe cf       	rjmp	.-4      	; 0xa2 <Response+0x6>
+	while((PIND & (1<<DHT11_PIN))==0);
+  a6:	86 9b       	sbis	0x10, 6	; 16
+  a8:	fe cf       	rjmp	.-4      	; 0xa6 <Response+0xa>
+	while(PIND & (1<<DHT11_PIN));
+  aa:	86 99       	sbic	0x10, 6	; 16
+  ac:	fe cf       	rjmp	.-4      	; 0xaa <Response+0xe>
+}
+  ae:	08 95       	ret
+
+000000b0 <Receive_data>:
+
+uint8_t Receive_data()			/* receive data */
+{
+	for (int q=0; q<8; q++)
+  b0:	20 e0       	ldi	r18, 0x00	; 0
+  b2:	30 e0       	ldi	r19, 0x00	; 0
+  b4:	19 c0       	rjmp	.+50     	; 0xe8 <Receive_data+0x38>
+	{
+		while((PIND & (1<<DHT11_PIN)) == 0);  /* check received bit 0 or 1 */
+  b6:	86 9b       	sbis	0x10, 6	; 16
+  b8:	fe cf       	rjmp	.-4      	; 0xb6 <Receive_data+0x6>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  ba:	80 e5       	ldi	r24, 0x50	; 80
+  bc:	8a 95       	dec	r24
+  be:	f1 f7       	brne	.-4      	; 0xbc <Receive_data+0xc>
+		_delay_us(30);
+
+		/* if high pulse is greater than 30ms */
+		if(PIND & (1<<DHT11_PIN)) {
+  c0:	86 9b       	sbis	0x10, 6	; 16
+  c2:	09 c0       	rjmp	.+18     	; 0xd6 <Receive_data+0x26>
+			
+			data = (data<<1)|(0x01);	/* then its logic HIGH */
+  c4:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  c8:	90 e0       	ldi	r25, 0x00	; 0
+  ca:	88 0f       	add	r24, r24
+  cc:	99 1f       	adc	r25, r25
+  ce:	81 60       	ori	r24, 0x01	; 1
+  d0:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+  d4:	05 c0       	rjmp	.+10     	; 0xe0 <Receive_data+0x30>
+		}
+		/* otherwise its logic LOW */
+		else {
+			data = (data<<1);
+  d6:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  da:	88 0f       	add	r24, r24
+  dc:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+		}
+		
+		while(PIND & (1<<DHT11_PIN));
+  e0:	86 99       	sbic	0x10, 6	; 16
+  e2:	fe cf       	rjmp	.-4      	; 0xe0 <Receive_data+0x30>
+	while(PIND & (1<<DHT11_PIN));
+}
+
+uint8_t Receive_data()			/* receive data */
+{
+	for (int q=0; q<8; q++)
+  e4:	2f 5f       	subi	r18, 0xFF	; 255
+  e6:	3f 4f       	sbci	r19, 0xFF	; 255
+  e8:	28 30       	cpi	r18, 0x08	; 8
+  ea:	31 05       	cpc	r19, r1
+  ec:	24 f3       	brlt	.-56     	; 0xb6 <Receive_data+0x6>
+		
+		while(PIND & (1<<DHT11_PIN));
+	}
+
+	return data;
+}
+  ee:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  f2:	08 95       	ret
+
+000000f4 <UART_init>:
+
+
+void UART_init(long USART_BAUDRATE)
+{
+	UCSRB |= (1 << RXEN) | (1 << TXEN) | (1 << RXCIE);/* Turn on transmission and reception */
+  f4:	2a b1       	in	r18, 0x0a	; 10
+  f6:	28 69       	ori	r18, 0x98	; 152
+  f8:	2a b9       	out	0x0a, r18	; 10
+	UCSRC |= (1 << URSEL) | (1 << UCSZ0) | (1 << UCSZ1);/* Use 8-bit character sizes */
+  fa:	20 b5       	in	r18, 0x20	; 32
+  fc:	26 68       	ori	r18, 0x86	; 134
+  fe:	20 bd       	out	0x20, r18	; 32
+	UBRRL = BAUD_PRESCALE;		/* Load lower 8-bits of the baud rate value */
+ 100:	dc 01       	movw	r26, r24
+ 102:	cb 01       	movw	r24, r22
+ 104:	88 0f       	add	r24, r24
+ 106:	99 1f       	adc	r25, r25
+ 108:	aa 1f       	adc	r26, r26
+ 10a:	bb 1f       	adc	r27, r27
+ 10c:	88 0f       	add	r24, r24
+ 10e:	99 1f       	adc	r25, r25
+ 110:	aa 1f       	adc	r26, r26
+ 112:	bb 1f       	adc	r27, r27
+ 114:	9c 01       	movw	r18, r24
+ 116:	ad 01       	movw	r20, r26
+ 118:	22 0f       	add	r18, r18
+ 11a:	33 1f       	adc	r19, r19
+ 11c:	44 1f       	adc	r20, r20
+ 11e:	55 1f       	adc	r21, r21
+ 120:	22 0f       	add	r18, r18
+ 122:	33 1f       	adc	r19, r19
+ 124:	44 1f       	adc	r20, r20
+ 126:	55 1f       	adc	r21, r21
+ 128:	60 e0       	ldi	r22, 0x00	; 0
+ 12a:	72 e1       	ldi	r23, 0x12	; 18
+ 12c:	8a e7       	ldi	r24, 0x7A	; 122
+ 12e:	90 e0       	ldi	r25, 0x00	; 0
+ 130:	0e 94 2b 01 	call	0x256	; 0x256 <__udivmodsi4>
+ 134:	8f ef       	ldi	r24, 0xFF	; 255
+ 136:	82 0f       	add	r24, r18
+ 138:	89 b9       	out	0x09, r24	; 9
+	UBRRH = (BAUD_PRESCALE >> 8);	/* Load upper 8-bits*/
+ 13a:	da 01       	movw	r26, r20
+ 13c:	c9 01       	movw	r24, r18
+ 13e:	01 97       	sbiw	r24, 0x01	; 1
+ 140:	a1 09       	sbc	r26, r1
+ 142:	b1 09       	sbc	r27, r1
+ 144:	89 2f       	mov	r24, r25
+ 146:	9a 2f       	mov	r25, r26
+ 148:	ab 2f       	mov	r26, r27
+ 14a:	bb 27       	eor	r27, r27
+ 14c:	80 bd       	out	0x20, r24	; 32
+ 14e:	08 95       	ret
+
+00000150 <UART_RxChar>:
+}
+
+unsigned char UART_RxChar()
+{
+	while ((UCSRA & (1 << RXC)) == 0);/* Wait till data is received */
+ 150:	5f 9b       	sbis	0x0b, 7	; 11
+ 152:	fe cf       	rjmp	.-4      	; 0x150 <UART_RxChar>
+	return(UDR);			/* Return the byte*/
+ 154:	8c b1       	in	r24, 0x0c	; 12
+}
+ 156:	08 95       	ret
+
+00000158 <UART_TxChar>:
+
+void UART_TxChar(char ch)
+{
+	while (! (UCSRA & (1<<UDRE)));	/* Wait for empty transmit buffer*/
+ 158:	5d 9b       	sbis	0x0b, 5	; 11
+ 15a:	fe cf       	rjmp	.-4      	; 0x158 <UART_TxChar>
+	UDR = ch ;
+ 15c:	8c b9       	out	0x0c, r24	; 12
+ 15e:	08 95       	ret
+
+00000160 <__vector_11>:
+}
+
+ISR(USART_RXC_vect)
+{
+ 160:	1f 92       	push	r1
+ 162:	0f 92       	push	r0
+ 164:	0f b6       	in	r0, 0x3f	; 63
+ 166:	0f 92       	push	r0
+ 168:	11 24       	eor	r1, r1
+ 16a:	2f 93       	push	r18
+ 16c:	3f 93       	push	r19
+ 16e:	4f 93       	push	r20
+ 170:	5f 93       	push	r21
+ 172:	6f 93       	push	r22
+ 174:	7f 93       	push	r23
+ 176:	8f 93       	push	r24
+ 178:	9f 93       	push	r25
+ 17a:	af 93       	push	r26
+ 17c:	bf 93       	push	r27
+ 17e:	ef 93       	push	r30
+ 180:	ff 93       	push	r31
+	char ch = UART_RxChar();
+ 182:	0e 94 a8 00 	call	0x150	; 0x150 <UART_RxChar>
+
+	if(ch == '0')
+ 186:	80 33       	cpi	r24, 0x30	; 48
+ 188:	11 f4       	brne	.+4      	; 0x18e <__vector_11+0x2e>
+	{
+		PORTC = 0x00; // tat led
+ 18a:	15 ba       	out	0x15, r1	; 21
+ 18c:	04 c0       	rjmp	.+8      	; 0x196 <__vector_11+0x36>
+	}
+	else if(ch == '1')
+ 18e:	81 33       	cpi	r24, 0x31	; 49
+ 190:	11 f4       	brne	.+4      	; 0x196 <__vector_11+0x36>
+	{
+		PORTC = 0x01; // bat led
+ 192:	81 e0       	ldi	r24, 0x01	; 1
+ 194:	85 bb       	out	0x15, r24	; 21
+	}
+}
+ 196:	ff 91       	pop	r31
+ 198:	ef 91       	pop	r30
+ 19a:	bf 91       	pop	r27
+ 19c:	af 91       	pop	r26
+ 19e:	9f 91       	pop	r25
+ 1a0:	8f 91       	pop	r24
+ 1a2:	7f 91       	pop	r23
+ 1a4:	6f 91       	pop	r22
+ 1a6:	5f 91       	pop	r21
+ 1a8:	4f 91       	pop	r20
+ 1aa:	3f 91       	pop	r19
+ 1ac:	2f 91       	pop	r18
+ 1ae:	0f 90       	pop	r0
+ 1b0:	0f be       	out	0x3f, r0	; 63
+ 1b2:	0f 90       	pop	r0
+ 1b4:	1f 90       	pop	r1
+ 1b6:	18 95       	reti
+
+000001b8 <main>:
+
+int main()
+{
+	
+	UART_init(9600);
+ 1b8:	60 e8       	ldi	r22, 0x80	; 128
+ 1ba:	75 e2       	ldi	r23, 0x25	; 37
+ 1bc:	80 e0       	ldi	r24, 0x00	; 0
+ 1be:	90 e0       	ldi	r25, 0x00	; 0
+ 1c0:	0e 94 7a 00 	call	0xf4	; 0xf4 <UART_init>
+	DDRC = 0x01;
+ 1c4:	81 e0       	ldi	r24, 0x01	; 1
+ 1c6:	84 bb       	out	0x14, r24	; 20
+	sei();
+ 1c8:	78 94       	sei
+	
+	while(1)
+	{
+		Request();		/* send start pulse */
+ 1ca:	0e 94 3e 00 	call	0x7c	; 0x7c <Request>
+		Response();		/* receive response */
+ 1ce:	0e 94 4e 00 	call	0x9c	; 0x9c <Response>
+
+		I_RH=Receive_data();	/* store first eight bit in I_RH */
+ 1d2:	0e 94 58 00 	call	0xb0	; 0xb0 <Receive_data>
+ 1d6:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <I_RH>
+		D_RH=Receive_data();	/* store next eight bit in D_RH */
+ 1da:	0e 94 58 00 	call	0xb0	; 0xb0 <Receive_data>
+ 1de:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <D_RH>
+		I_Temp=Receive_data();	/* store next eight bit in I_Temp */
+ 1e2:	0e 94 58 00 	call	0xb0	; 0xb0 <Receive_data>
+ 1e6:	80 93 63 00 	sts	0x0063, r24	; 0x800063 <I_Temp>
+		D_Temp=Receive_data();	/* store next eight bit in D_Temp */
+ 1ea:	0e 94 58 00 	call	0xb0	; 0xb0 <Receive_data>
+ 1ee:	80 93 65 00 	sts	0x0065, r24	; 0x800065 <D_Temp>
+		CheckSum=Receive_data();/* store next eight bit in CheckSum */
+ 1f2:	0e 94 58 00 	call	0xb0	; 0xb0 <Receive_data>
+ 1f6:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <CheckSum>
+		if ((I_RH + D_RH + I_Temp + D_Temp) == CheckSum)
+ 1fa:	90 91 64 00 	lds	r25, 0x0064	; 0x800064 <I_RH>
+ 1fe:	40 91 61 00 	lds	r20, 0x0061	; 0x800061 <D_RH>
+ 202:	29 2f       	mov	r18, r25
+ 204:	30 e0       	ldi	r19, 0x00	; 0
+ 206:	24 0f       	add	r18, r20
+ 208:	31 1d       	adc	r19, r1
+ 20a:	40 91 63 00 	lds	r20, 0x0063	; 0x800063 <I_Temp>
+ 20e:	24 0f       	add	r18, r20
+ 210:	31 1d       	adc	r19, r1
+ 212:	40 91 65 00 	lds	r20, 0x0065	; 0x800065 <D_Temp>
+ 216:	24 0f       	add	r18, r20
+ 218:	31 1d       	adc	r19, r1
+ 21a:	48 2f       	mov	r20, r24
+ 21c:	50 e0       	ldi	r21, 0x00	; 0
+ 21e:	24 17       	cp	r18, r20
+ 220:	35 07       	cpc	r19, r21
+ 222:	79 f4       	brne	.+30     	; 0x242 <__EEPROM_REGION_LENGTH__+0x42>
+		{
+			UART_TxChar(I_RH);
+ 224:	89 2f       	mov	r24, r25
+ 226:	0e 94 ac 00 	call	0x158	; 0x158 <UART_TxChar>
+			UART_TxChar(D_RH);
+ 22a:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <D_RH>
+ 22e:	0e 94 ac 00 	call	0x158	; 0x158 <UART_TxChar>
+			UART_TxChar(I_Temp);
+ 232:	80 91 63 00 	lds	r24, 0x0063	; 0x800063 <I_Temp>
+ 236:	0e 94 ac 00 	call	0x158	; 0x158 <UART_TxChar>
+			UART_TxChar(D_Temp);
+ 23a:	80 91 65 00 	lds	r24, 0x0065	; 0x800065 <D_Temp>
+ 23e:	0e 94 ac 00 	call	0x158	; 0x158 <UART_TxChar>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 242:	2f ef       	ldi	r18, 0xFF	; 255
+ 244:	80 e7       	ldi	r24, 0x70	; 112
+ 246:	92 e0       	ldi	r25, 0x02	; 2
+ 248:	21 50       	subi	r18, 0x01	; 1
+ 24a:	80 40       	sbci	r24, 0x00	; 0
+ 24c:	90 40       	sbci	r25, 0x00	; 0
+ 24e:	e1 f7       	brne	.-8      	; 0x248 <__EEPROM_REGION_LENGTH__+0x48>
+ 250:	00 c0       	rjmp	.+0      	; 0x252 <__EEPROM_REGION_LENGTH__+0x52>
+ 252:	00 00       	nop
+ 254:	ba cf       	rjmp	.-140    	; 0x1ca <main+0x12>
+
+00000256 <__udivmodsi4>:
+ 256:	a1 e2       	ldi	r26, 0x21	; 33
+ 258:	1a 2e       	mov	r1, r26
+ 25a:	aa 1b       	sub	r26, r26
+ 25c:	bb 1b       	sub	r27, r27
+ 25e:	fd 01       	movw	r30, r26
+ 260:	0d c0       	rjmp	.+26     	; 0x27c <__udivmodsi4_ep>
+
+00000262 <__udivmodsi4_loop>:
+ 262:	aa 1f       	adc	r26, r26
+ 264:	bb 1f       	adc	r27, r27
+ 266:	ee 1f       	adc	r30, r30
+ 268:	ff 1f       	adc	r31, r31
+ 26a:	a2 17       	cp	r26, r18
+ 26c:	b3 07       	cpc	r27, r19
+ 26e:	e4 07       	cpc	r30, r20
+ 270:	f5 07       	cpc	r31, r21
+ 272:	20 f0       	brcs	.+8      	; 0x27c <__udivmodsi4_ep>
+ 274:	a2 1b       	sub	r26, r18
+ 276:	b3 0b       	sbc	r27, r19
+ 278:	e4 0b       	sbc	r30, r20
+ 27a:	f5 0b       	sbc	r31, r21
+
+0000027c <__udivmodsi4_ep>:
+ 27c:	66 1f       	adc	r22, r22
+ 27e:	77 1f       	adc	r23, r23
+ 280:	88 1f       	adc	r24, r24
+ 282:	99 1f       	adc	r25, r25
+ 284:	1a 94       	dec	r1
+ 286:	69 f7       	brne	.-38     	; 0x262 <__udivmodsi4_loop>
+ 288:	60 95       	com	r22
+ 28a:	70 95       	com	r23
+ 28c:	80 95       	com	r24
+ 28e:	90 95       	com	r25
+ 290:	9b 01       	movw	r18, r22
+ 292:	ac 01       	movw	r20, r24
+ 294:	bd 01       	movw	r22, r26
+ 296:	cf 01       	movw	r24, r30
+ 298:	08 95       	ret
+
+0000029a <_exit>:
+ 29a:	f8 94       	cli
+
+0000029c <__stop_program>:
+ 29c:	ff cf       	rjmp	.-2      	; 0x29c <__stop_program>

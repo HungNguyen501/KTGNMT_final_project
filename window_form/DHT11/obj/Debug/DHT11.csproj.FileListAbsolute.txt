@@ -1,0 +1,86 @@
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\DHT11.exe.config
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\DHT11.exe
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\DHT11.pdb
+E:\BTL_KTGN\DHT11\DHT11\obj\Debug\DHT11.csprojAssemblyReference.cache
+E:\BTL_KTGN\DHT11\DHT11\obj\Debug\DHT11.Form1.resources
+E:\BTL_KTGN\DHT11\DHT11\obj\Debug\DHT11.Properties.Resources.resources
+E:\BTL_KTGN\DHT11\DHT11\obj\Debug\DHT11.csproj.GenerateResource.cache
+E:\BTL_KTGN\DHT11\DHT11\obj\Debug\DHT11.csproj.CoreCompileInputs.cache
+E:\BTL_KTGN\DHT11\DHT11\obj\Debug\DHT11.exe
+E:\BTL_KTGN\DHT11\DHT11\obj\Debug\DHT11.pdb
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\FireSharp.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\FireSharp.Serialization.JsonNet.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\Newtonsoft.Json.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\RestSharp.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\ZedGraph.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\Newtonsoft.Json.xml
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\RestSharp.xml
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\ZedGraph.xml
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\de\ZedGraph.resources.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\es\ZedGraph.resources.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\fr\ZedGraph.resources.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\hu\ZedGraph.resources.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\it\ZedGraph.resources.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\ja\ZedGraph.resources.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\pt\ZedGraph.resources.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\ru\ZedGraph.resources.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\sk\ZedGraph.resources.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\sv\ZedGraph.resources.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\tr\ZedGraph.resources.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\zh-cn\ZedGraph.resources.dll
+E:\BTL_KTGN\DHT11\DHT11\bin\Debug\zh-tw\ZedGraph.resources.dll
+E:\BTL_KTGN\DHT11\DHT11\obj\Debug\DHT11.csproj.CopyComplete
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\DHT11.exe.config
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\DHT11.exe
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\DHT11.pdb
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\FireSharp.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\FireSharp.Serialization.JsonNet.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\RestSharp.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\ZedGraph.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\RestSharp.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\ZedGraph.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\de\ZedGraph.resources.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\es\ZedGraph.resources.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\fr\ZedGraph.resources.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\hu\ZedGraph.resources.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\it\ZedGraph.resources.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\ja\ZedGraph.resources.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\pt\ZedGraph.resources.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\ru\ZedGraph.resources.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\sk\ZedGraph.resources.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\sv\ZedGraph.resources.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\tr\ZedGraph.resources.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\zh-cn\ZedGraph.resources.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\zh-tw\ZedGraph.resources.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\obj\Debug\DHT11.csproj.AssemblyReference.cache
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\obj\Debug\DHT11.Form1.resources
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\obj\Debug\DHT11.Properties.Resources.resources
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\obj\Debug\DHT11.csproj.GenerateResource.cache
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\obj\Debug\DHT11.csproj.CoreCompileInputs.cache
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\obj\Debug\DHT11.csproj.CopyComplete
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\obj\Debug\DHT11.exe
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\obj\Debug\DHT11.pdb
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\Npgsql.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Buffers.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Memory.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Numerics.Vectors.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Text.Encodings.Web.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Text.Json.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Threading.Channels.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.ValueTuple.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\Npgsql.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Buffers.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Memory.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Numerics.Vectors.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Text.Encodings.Web.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Text.Json.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Threading.Channels.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.ValueTuple.xml
