@@ -88,7 +88,7 @@ ISR(USART_RXC_vect)
 	else if(ch == '1')
 	{
 		PORTC = 0x01; // bat led
-	}
+	} 
 }
 
 int main()
