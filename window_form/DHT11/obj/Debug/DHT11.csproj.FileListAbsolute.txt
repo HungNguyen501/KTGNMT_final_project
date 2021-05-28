@@ -84,3 +84,11 @@ D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin
 D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Threading.Channels.xml
 D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\System.ValueTuple.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\Devart.Data.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\Devart.Data.PostgreSql.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\EntityFramework.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\EntityFramework6.Npgsql.dll
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\EntityFramework.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\KTGNMT\Final exam project\KTGNMT_final_project\window_form\DHT11\bin\Debug\EntityFramework6.Npgsql.xml

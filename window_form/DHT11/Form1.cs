@@ -19,7 +19,8 @@ namespace DHT11
     public partial class Form1 : Form
     {
         SerialPort serialPort = null;
-        NpgsqlConnection postgres_connection = null;
+        PostgresDBContext postgres_context = null;
+        // NpgsqlConnection postgres_connection = null;
 
         DataInfo newDataInfor = new DataInfo();
         DataInfo cacheDataInfor = new DataInfo();
@@ -29,8 +30,6 @@ namespace DHT11
 
         const int LED_ON = 1;
         const int LED_OFF = 0;
-        int LED = 0;
-        int last_state_LED = 0;
 
         List<DataInfo> listData = new List<DataInfo>() { };
         RollingPointPairList listHumidPoint = new RollingPointPairList(10000);
@@ -41,15 +40,20 @@ namespace DHT11
         public Form1()
         {
             InitializeComponent();
-
-            
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             try
+            {
+                postgres_context = new PostgresDBContext();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+            /*try
             {
                 var cs = "Host=localhost; Port=5432; Username=postgres;Password=123456;Database=postgres";
                 postgres_connection = new NpgsqlConnection(cs);
@@ -58,7 +62,7 @@ namespace DHT11
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-            }
+            }*/
 
             try
             {
@@ -110,8 +114,42 @@ namespace DHT11
             // tem = I_Temp + D_temp/10
             newDataInfor.temperaturePoint = data[2] + data[3]/10;
 
+            //Control LED
+            if (newDataInfor.humidityPoint <= 45 &&
+                newDataInfor.humidityPoint >= 40 &&
+                newDataInfor.temperaturePoint <= 26 &&
+                newDataInfor.temperaturePoint >= 20)
+            {
+                newDataInfor.LED = LED_OFF;
+            }
+            else
+            {
+                newDataInfor.LED = LED_ON;
+            }
+
+            if (newDataInfor.temperaturePoint != cacheDataInfor.temperaturePoint ||
+                newDataInfor.humidityPoint != cacheDataInfor.humidityPoint)
+            {
+                updatePostgesDB(newDataInfor);
+            }
+
             adddData();
-            
+        }
+
+        private void updatePostgesDB(DataInfo dataInfo)
+        {
+            try
+            {
+                postgres_context.list_record.Add(new SensorRecord(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"),
+                                                    (int)dataInfo.temperaturePoint,
+                                                    (int)dataInfo.humidityPoint,
+                                                    dataInfo.LED));
+                postgres_context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void adddData()
@@ -138,33 +176,22 @@ namespace DHT11
             temp_value_lable.Text = newDataInfor.temperaturePoint.ToString(); ;
             humid_value_lable.Text = newDataInfor.humidityPoint.ToString();
 
-            //Control LED
+            // Update status lable
             var color = Color.Green;
             string text = "normal";
 
-            if (newDataInfor.humidityPoint <= 45 &&
-                newDataInfor.humidityPoint >= 40 &&
-                newDataInfor.temperaturePoint <= 26 &&
-                newDataInfor.temperaturePoint >= 20)
+            if (newDataInfor.LED == LED_ON)
             {
-                LED = LED_OFF;
-            }
-            else
-            {
-                LED = LED_ON;
                 color = Color.Red;
                 text = "warning";
             }
 
-            if (last_state_LED != LED)
+            if (newDataInfor.LED != cacheDataInfor.LED)
             {
                 status_value_lable.Text = text;
                 status_value_lable.ForeColor = color;
-                serialPort.Write(new char[] { '0', '1' }, LED, 1);
+                serialPort.Write(new char[] { '0', '1' }, newDataInfor.LED, 1);
             }
-
-            last_state_LED = LED;
-            newDataInfor.LED = LED;
 
         }
 
@@ -189,7 +216,9 @@ namespace DHT11
 
         private void sendDataButton_Click(object sender, EventArgs e)
         {
-            if (postgres_connection != null && postgres_connection.State == ConnectionState.Open)
+            // updatePostgesDB(cacheDataInfor);
+
+            /*if (postgres_connection != null && postgres_connection.State == ConnectionState.Open)
             {
                 try
                 {
@@ -213,7 +242,7 @@ namespace DHT11
                 }
                 
                     
-            }
+            }*/
         }
 
         private void zedGraphControl_Load(object sender, EventArgs e)
