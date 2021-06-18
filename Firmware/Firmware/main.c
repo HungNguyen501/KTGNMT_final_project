@@ -19,7 +19,7 @@ uint8_t CheckSum;
 
 void Request()				/* Microcontroller send start pulse/request */
 {
-	DDRD |= (1<<DHT11_PIN);
+	DDRD |= (1<<DHT11_PIN); // Data direction register for port D as outputs
 	PORTD &= ~(1<<DHT11_PIN);	/* set to low pin */
 	_delay_ms(20);			/* wait for 20ms */
 	PORTD |= (1<<DHT11_PIN);	/* set to high pin */
@@ -27,7 +27,7 @@ void Request()				/* Microcontroller send start pulse/request */
 
 void Response()				/* receive response from DHT11 */
 {
-	DDRD &= ~(1<<DHT11_PIN);
+	DDRD &= ~(1<<DHT11_PIN); // Data direction register for port D as inputs
 	while(PIND & (1<<DHT11_PIN));
 	while((PIND & (1<<DHT11_PIN))==0);
 	while(PIND & (1<<DHT11_PIN));
@@ -83,11 +83,11 @@ ISR(USART_RXC_vect)
 
 	if(ch == '0')
 	{
-		PORTC = 0x00; // tat led
+		PORTC = 0x00; // turn off led
 	}
 	else if(ch == '1')
 	{
-		PORTC = 0x01; // bat led
+		PORTC = 0x01; // turn off led
 	} 
 }
 
@@ -95,7 +95,7 @@ int main()
 {
 	
 	UART_init(9600);
-	DDRC = 0x01;
+	DDRC = 0x01; // Data direction register for port C as outputs
 	sei();
 	
 	while(1)
@@ -108,6 +108,7 @@ int main()
 		I_Temp=Receive_data();	/* store next eight bit in I_Temp */
 		D_Temp=Receive_data();	/* store next eight bit in D_Temp */
 		CheckSum=Receive_data();/* store next eight bit in CheckSum */
+
 		if ((I_RH + D_RH + I_Temp + D_Temp) == CheckSum)
 		{
 			UART_TxChar(I_RH);
